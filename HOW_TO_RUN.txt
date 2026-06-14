@@ -1,0 +1,46 @@
+How to run: Navigate to folder containing the main.c and run the following command: 
+gcc main.c -o registration
+
+To run the program with default settings (100 students, 15 courses):
+
+  ./registration
+
+
+1. HOW TO ADD/DELETE STUDENTS AND COURSES
+
+You can easily change the number of students or courses without 
+modifying the code. Use the command-line options `-s` (students) 
+and `-c` (courses).
+
+Example 1: Run with 50 students and 5 courses:
+  ./registration -s 50 -c 5
+
+Note: The maximum allowed students is 200, and max courses is 20.
+
+1. OTHER USEFUL MODES
+
+- STRESS TEST: Runs with 200 students and randomized seat counts.
+  ./registration --stress
+
+- DEMO MODE: Proves strict priority scheduling is working correctly 
+  by eliminating thread enqueuing races.
+  ./registration --demo -s 40 -c 4 --seed 42
+
+- SCENARIO MODE: Runs the specific 10-student, 3-course (CS101, CS102, CS103) setup.
+  ./registration --scenario
+
+- EXPORT TO CSV: Saves the final course allocations to a file.
+  ./registration --csv
+
+- VIEW ALL OPTIONS:
+  ./registration --help
+
+
+3. OUTPUT
+
+When you run the program, it will:
+1. Print the live registration attempts of threads to the terminal.
+2. Perform automatic correctness checks (verifying no negative seats).
+3. Display a final report table.
+4. Save a clean log file (registration_log.txt) in the same directory.
+
